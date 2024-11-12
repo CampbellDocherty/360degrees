@@ -3,14 +3,20 @@ import { FirebaseStorageContent, getFiles } from './firebase';
 
 const App = () => {
   const [content, setContent] = useState<FirebaseStorageContent[] | null>(null);
+
   useEffect(() => {
     const get = async () => {
       const files = await getFiles();
       setContent(files);
     };
 
-    get();
+    get(); // initial get
+
+    setInterval(() => {
+      get();
+    }, 5000);
   }, []);
+
   return (
     <div
       style={{
