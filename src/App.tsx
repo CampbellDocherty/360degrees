@@ -1,5 +1,5 @@
 const App = () => {
-  return <p>Frontend fork by Cammy!</p>;
+  return <p>360degrees</p>;
 };
 
 export default App;

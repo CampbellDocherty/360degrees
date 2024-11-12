@@ -1,2 +1,3 @@
-Frontend with github actions for forking
-Just switch 'frontend-fork' to the name of your app and you should be good to go!
+# 360degrres
+
+A stream of photos taken by a musically controlled camera made with an Arduino and a RasperryPi.

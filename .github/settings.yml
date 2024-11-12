@@ -1,7 +1,7 @@
 # See https://developer.github.com/v3/repos/#edit for all available settings.
 repository:
-  name: frontend-skeleton
-  description: Frontend skeleton 
+  name: 360degrees
+  description: Pictures taken by the musically controlled three sixty camera
   default_branch: main
   private: true
 
