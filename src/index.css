@@ -10,10 +10,6 @@
 body {
   margin: 0;
   background-color: #000000;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 p {
@@ -21,6 +17,6 @@ p {
   color: white;
   padding: 0;
   font-size: 20px;
-  margin: 0;
-  margin-top: 16px;
+  margin: 16px;
+  margin-right: 24px;
 }
