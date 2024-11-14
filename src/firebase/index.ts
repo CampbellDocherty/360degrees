@@ -1,5 +1,11 @@
 import { initializeApp } from 'firebase/app';
-import { getStorage, listAll, ref, getDownloadURL } from 'firebase/storage';
+import {
+  getStorage,
+  listAll,
+  ref,
+  getDownloadURL,
+  getMetadata,
+} from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,6 +27,9 @@ const listRef = ref(storage, 'uploads/');
 
 export type FirebaseStorageContent = {
   downloadUrl: string;
+  metadata: {
+    timeCreated: string;
+  };
 };
 
 export const getFiles = async () => {
@@ -28,10 +37,18 @@ export const getFiles = async () => {
   const promisedFiles = res.items.map(async (item) => {
     const storageRef = ref(storage, item.fullPath);
     const downloadUrl = await getDownloadURL(storageRef);
+    const metadata = await getMetadata(storageRef);
     return {
       downloadUrl,
+      metadata,
     };
   });
   const files: FirebaseStorageContent[] = await Promise.all(promisedFiles);
-  return files;
+  const sortedFiles = files.sort(
+    (a, b) =>
+      new Date(b.metadata.timeCreated).getTime() -
+      new Date(a.metadata.timeCreated).getTime()
+  );
+  console.log(sortedFiles);
+  return sortedFiles;
 };
