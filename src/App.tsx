@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FirebaseStorageContent, getFiles } from './firebase';
+import { Container, LeftSide, RightSide, StreamImage, Text } from './styles';
+import { isMobile } from 'react-device-detect';
 
 const App = () => {
   const [content, setContent] = useState<FirebaseStorageContent[] | null>(null);
@@ -18,50 +20,26 @@ const App = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        position: 'relative',
-      }}
-    >
-      <div
-        style={{
-          width: '50%',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          position: 'fixed',
-          top: '0px',
-          left: '0px',
-        }}
-      >
-        <p>360degrees</p>
-      </div>
+    <Container>
+      <LeftSide $isMobile={isMobile}>
+        <Text $isMobile={isMobile}>360degrees</Text>
+      </LeftSide>
       {content && (
-        <div
-          style={{
-            width: '50%',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            flexDirection: 'column',
-            position: 'absolute',
-            right: '0px',
-            top: '0px',
-          }}
-        >
+        <RightSide $isMobile={isMobile}>
           {content.map((image, index) => {
             return (
-              <img
-                style={{ width: '200px', height: '140px' }}
+              <StreamImage
+                $isMobile={isMobile}
+                $delay={`${index * 0.05}s`}
                 key={image.downloadUrl}
                 src={image.downloadUrl}
                 alt={`The number of this one is ${index + 1}`}
               />
             );
           })}
-        </div>
+        </RightSide>
       )}
-    </div>
+    </Container>
   );
 };
 
