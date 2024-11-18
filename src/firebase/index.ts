@@ -49,6 +49,5 @@ export const getFiles = async () => {
       new Date(b.metadata.timeCreated).getTime() -
       new Date(a.metadata.timeCreated).getTime()
   );
-  console.log(sortedFiles);
   return sortedFiles;
 };
