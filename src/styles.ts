@@ -2,57 +2,25 @@ import { keyframes, styled } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
   position: relative;
 `;
 
-export const RightSide = styled.div<{ $isMobile: boolean }>`
-  width: 50%;
+export const StreamContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-
-  ${({ $isMobile }) =>
-    $isMobile &&
-    `
-    width: 60%;
-  `}
+  overflow-x: scroll;
 `;
 
-export const LeftSide = styled.div<{ $isMobile: boolean }>`
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-
-  ${({ $isMobile }) =>
-    $isMobile &&
-    `
-    width: 40%;
-    justify-content: flex-start;
-  `}
-`;
-
-export const Text = styled.p<{ $isMobile: boolean }>`
+export const Text = styled.p`
   font-family: 'Inconsolata';
   color: white;
   padding: 0;
   font-size: 20px;
-  margin-top: 16px;
-  margin-right: 24px;
-
-  ${({ $isMobile }) =>
-    $isMobile &&
-    `
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    font-size: 24px;
-  `}
+  margin: 16px;
 `;
 
 const fadeIn = keyframes`
@@ -62,7 +30,7 @@ const fadeIn = keyframes`
   }
 `;
 
-export const StreamImage = styled.img<{ $isMobile: boolean; $delay: string }>`
+export const StreamImage = styled.img<{ $delay: string }>`
   width: 200px;
   height: 140px;
 
@@ -70,11 +38,4 @@ export const StreamImage = styled.img<{ $isMobile: boolean; $delay: string }>`
   transform: translateY(20px);
   animation: ${fadeIn} 0.6s ease forwards;
   animation-delay: ${({ $delay }) => $delay};
-
-  ${({ $isMobile }) =>
-    $isMobile &&
-    `
-    width: 100%;
-    height: auto;
-  `}
 `;

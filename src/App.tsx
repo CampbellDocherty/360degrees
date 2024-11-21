@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FirebaseStorageContent, getFiles } from './firebase';
-import { Container, LeftSide, RightSide, StreamImage, Text } from './styles';
-import { isMobile } from 'react-device-detect';
+import { Container, StreamContainer, StreamImage, Text } from './styles';
 
 const App = () => {
   const [content, setContent] = useState<FirebaseStorageContent[] | null>(null);
@@ -21,15 +20,13 @@ const App = () => {
 
   return (
     <Container>
-      <LeftSide $isMobile={isMobile}>
-        <Text $isMobile={isMobile}>360degrees</Text>
-      </LeftSide>
+      <Text>100° sonic self portraits</Text>
+
       {content && (
-        <RightSide $isMobile={isMobile}>
+        <StreamContainer>
           {content.map((image, index) => {
             return (
               <StreamImage
-                $isMobile={isMobile}
                 $delay={`${index * 0.05}s`}
                 key={image.downloadUrl}
                 src={image.downloadUrl}
@@ -37,7 +34,7 @@ const App = () => {
               />
             );
           })}
-        </RightSide>
+        </StreamContainer>
       )}
     </Container>
   );
