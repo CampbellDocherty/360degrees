@@ -3,16 +3,30 @@ import { keyframes, styled } from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  min-height: 80vh;
+  min-height: 100vh;
   position: relative;
 `;
 
 export const StreamContainer = styled.div`
+  padding-top: 24px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   overflow-x: scroll;
+`;
+
+export const StreamTitle = styled.p`
+  font-family: 'Inconsolata';
+  color: white;
+  padding: 0;
+  font-size: 16px;
+  margin: 16px;
+
+  & > span {
+    vertical-align: middle;
+    font-size: 12px;
+  }
 `;
 
 export const Text = styled.p`
@@ -20,7 +34,7 @@ export const Text = styled.p`
   color: white;
   padding: 0;
   font-size: 20px;
-  margin: 16px;
+  margin: 24px 16px;
 `;
 
 const fadeIn = keyframes`
@@ -28,6 +42,12 @@ const fadeIn = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
+`;
+
+export const StreamImages = styled.div`
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
 `;
 
 export const StreamImage = styled.img<{ $delay: string }>`
