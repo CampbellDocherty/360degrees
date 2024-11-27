@@ -59,3 +59,48 @@ export const StreamImage = styled.img<{ $delay: string }>`
   animation: ${fadeIn} 0.6s ease forwards;
   animation-delay: ${({ $delay }) => $delay};
 `;
+
+export const PortraitImages = styled.div`
+  width: 300px;
+  height: 210px;
+  display: flex;
+  overflow-y: hidden;
+`;
+
+export const PortraitImageContainer = styled.div<{ $delay: string }>`
+  width: calc(300px / 6);
+  height: 100%;
+  transform: translateY(20px);
+  animation: ${fadeIn} 0.6s ease forwards;
+  animation-delay: ${({ $delay }) => $delay};
+`;
+
+export const PortraitImage = styled.img`
+  object-fit: cover;
+
+  width: calc(300px / 6);
+  height: 100%;
+  background-size: 1800px 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+
+  &:nth-child(2) {
+    background-position: -200px;
+  }
+
+  &:nth-child(3) {
+    background-position: -400px;
+  }
+
+  &:nth-child(4) {
+    background-position: -600px;
+  }
+
+  &:nth-child(5) {
+    background-position: -800px;
+  }
+
+  &:nth-child(6) {
+    background-position: -1000px;
+  }
+`;

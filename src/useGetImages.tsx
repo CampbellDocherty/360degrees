@@ -24,7 +24,7 @@ export const useGetImages = () => {
       while (i < sortedFiles.length) {
         const loopMetadata = sortedFiles[i]?.metadata?.customMetadata?.loop;
         if (loopMetadata && loopMetadata == 'True') {
-          const extracted = sortedFiles.splice(i, 6);
+          const extracted = sortedFiles.splice(i, 6).reverse();
           newList.push(extracted);
         } else {
           i++;
