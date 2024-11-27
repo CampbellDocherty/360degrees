@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <Container>
-      <Text>100° sonic self portraits</Text>
+      <Text>60° sonic self portraits</Text>
 
       {liveStream && (
         <StreamContainer>

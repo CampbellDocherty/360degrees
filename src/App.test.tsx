@@ -5,6 +5,6 @@ import App from './App';
 describe('When the app renders', () => {
   test('it shows the title', () => {
     render(<App />);
-    screen.getByText('360degrees');
+    screen.getByText('60° sonic self portraits');
   });
 });
