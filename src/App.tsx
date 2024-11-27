@@ -1,5 +1,8 @@
 import {
   Container,
+  PortraitImage,
+  PortraitImageContainer,
+  PortraitImages,
   StreamContainer,
   StreamImage,
   StreamImages,
@@ -39,18 +42,21 @@ const App = () => {
           return (
             <StreamContainer key={index}>
               <StreamTitle>{portrait[0].metadata.timeCreated}</StreamTitle>
-              <StreamImages>
+              <PortraitImages>
                 {portrait.map((image, index) => {
                   return (
-                    <StreamImage
+                    <PortraitImageContainer
                       $delay={`${index * 0.05}s`}
                       key={image.downloadUrl}
-                      src={image.downloadUrl}
-                      alt={`The number of this one is ${index + 1}`}
-                    />
+                    >
+                      <PortraitImage
+                        src={image.downloadUrl}
+                        alt={`The number of this one is ${index + 1}`}
+                      />
+                    </PortraitImageContainer>
                   );
                 })}
-              </StreamImages>
+              </PortraitImages>
             </StreamContainer>
           );
         })}
