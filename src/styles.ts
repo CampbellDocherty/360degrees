@@ -16,6 +16,15 @@ export const StreamContainer = styled.div`
   overflow-x: scroll;
 `;
 
+export const PortraitContainer = styled.div`
+  padding-top: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: scroll;
+`;
+
 export const StreamTitle = styled.p`
   font-family: 'Inconsolata';
   color: white;
@@ -61,14 +70,14 @@ export const StreamImage = styled.img<{ $delay: string }>`
 `;
 
 export const PortraitImages = styled.div`
-  width: 300px;
-  height: 210px;
+  width: 250px;
+  height: 175px;
   display: flex;
   overflow-y: hidden;
 `;
 
 export const PortraitImageContainer = styled.div<{ $delay: string }>`
-  width: calc(300px / 6);
+  width: calc(250px / 6);
   height: 100%;
   transform: translateY(20px);
   animation: ${fadeIn} 0.6s ease forwards;
@@ -78,7 +87,7 @@ export const PortraitImageContainer = styled.div<{ $delay: string }>`
 export const PortraitImage = styled.img`
   object-fit: cover;
 
-  width: calc(300px / 6);
+  width: calc(250px / 6);
   height: 100%;
   background-size: 1800px 100%;
   background-repeat: no-repeat;

@@ -1,5 +1,6 @@
 import {
   Container,
+  PortraitContainer,
   PortraitImage,
   PortraitImageContainer,
   PortraitImages,
@@ -40,7 +41,7 @@ const App = () => {
       {fullPortraits &&
         fullPortraits.map((portrait, index) => {
           return (
-            <StreamContainer key={index}>
+            <PortraitContainer key={index}>
               <StreamTitle>{portrait[0].metadata.timeCreated}</StreamTitle>
               <PortraitImages>
                 {portrait.map((image, index) => {
@@ -57,7 +58,7 @@ const App = () => {
                   );
                 })}
               </PortraitImages>
-            </StreamContainer>
+            </PortraitContainer>
           );
         })}
     </Container>
