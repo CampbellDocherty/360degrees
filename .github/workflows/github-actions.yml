@@ -93,6 +93,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
+    container:
+      image: node:20.0.0
 
     steps:
       - name: Checkout
