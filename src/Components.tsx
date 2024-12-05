@@ -70,7 +70,7 @@ const Text = styled.p`
 
 const components = [
   {
-    name: 'Arduino Leonardo',
+    name: 'Arduino Leonardo & Arduino IoT Nano 33',
     countries: [
       countries.italy,
       countries.peru,
@@ -126,6 +126,10 @@ export const Components = () => {
             project may have come from the DRC where global demand for their
             natural resources is fueling a deadly conflict.
           </Text>
+          <CountryName style={{ marginTop: '48px' }}>
+            Scroll down for an in depth look at the projects most crucial
+            components
+          </CountryName>
         </SliderPiece>
         {components.map((component) => {
           return (
