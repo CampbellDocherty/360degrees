@@ -2,15 +2,30 @@ import { styled } from 'styled-components';
 import { NavBar } from './NavBar';
 import { Container } from './styles';
 import { countries } from './assets/countries';
+import downArrow from './assets/down-arrow.svg';
 
-const ComponentContainer = styled.div`
+const Slider = styled.div`
+  flex: 1;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  box-sizing: border-box;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px;
+`;
+
+const SliderPiece = styled.div`
+  max-width: 1000px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
   padding: 0px 16px;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 0px;
 `;
 
 const Countries = styled.div`
@@ -30,7 +45,7 @@ const CountryName = styled.p`
   color: white;
   padding: 0;
   font-size: 16px;
-  margin: 16px;
+  margin: 0;
 `;
 
 const ComponentName = styled.p`
@@ -38,7 +53,7 @@ const ComponentName = styled.p`
   color: white;
   padding: 0;
   font-size: 24px;
-  margin: 16px;
+  margin: 0;
 `;
 
 const Text = styled.p`
@@ -46,12 +61,25 @@ const Text = styled.p`
   color: white;
   padding: 0;
   font-size: 20px;
-  margin: 16px;
+  margin: 0;
 
   & > a {
     color: white;
     text-decoration: underline;
   }
+`;
+
+const Button = styled.button`
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: transparent;
+  outline: none;
+  border: none;
+  width: 200px;
+  align-self: center;
+  cursor: pointer;
 `;
 
 const components = [
@@ -89,41 +117,60 @@ const components = [
 
 export const Components = () => {
   return (
-    <Container>
+    <Container style={{ overflowY: 'hidden' }}>
       <NavBar />
-      <Text>
-        It was very difficult trying to track down firstly the materials used to
-        make each component and secondly where those materials may have been
-        sourced from. It&apos;s a real indication of how globalised supply
-        chains have become when you can easily spend a week researching the
-        origins of just one product.
-      </Text>
-      {components.map((component) => {
-        return (
-          <ComponentContainer key={component.name}>
-            <ComponentName>{component.name}</ComponentName>
-            <Countries>
-              {component.countries.map((country) => {
-                return (
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '8px',
-                      alignItems: 'center',
-                    }}
-                    key={country.name}
-                  >
-                    <Country src={country.src} alt={country.name} />
-                    <CountryName>{country.name}</CountryName>
-                  </div>
-                );
-              })}
-            </Countries>
-            <Text dangerouslySetInnerHTML={{ __html: component.text }} />
-          </ComponentContainer>
-        );
-      })}
+      <Slider>
+        <SliderPiece>
+          <ComponentName>Components used in this project</ComponentName>
+          <Text>
+            It was very difficult trying to track down firstly, the materials
+            used to make each component and secondly, where those materials may
+            have been sourced from. It&apos;s a real indication of how
+            globalised supply chains have become when you can easily spend a
+            week researching the origins of just one product.
+          </Text>
+          <Text>
+            Most concerning was the fact that a lot of the components relied on
+            petroleum for the production of the plastics used. So, in turn using
+            these products exacerbates issues of climate change and the
+            injustices associated. Equally, I was sad to find that the DRC was
+            most likely involved in the supply chain. China and the US operate
+            mines in the DRC and extract copper and gold for processing. It is
+            likely then that the copper and gold used in the components in this
+            project may have come from the DRC where global demand for their
+            natural resources is fueling a deadly conflict.
+          </Text>
+          <Button>
+            <img style={{ width: '20%' }} src={downArrow} alt="Down arrow" />
+          </Button>
+        </SliderPiece>
+        {components.map((component) => {
+          return (
+            <SliderPiece key={component.name}>
+              <ComponentName>{component.name}</ComponentName>
+              <Countries>
+                {component.countries.map((country) => {
+                  return (
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px',
+                        alignItems: 'center',
+                      }}
+                      key={country.name}
+                    >
+                      <Country src={country.src} alt={country.name} />
+                      <CountryName>{country.name}</CountryName>
+                    </div>
+                  );
+                })}
+              </Countries>
+              <Text dangerouslySetInnerHTML={{ __html: component.text }} />
+            </SliderPiece>
+          );
+        })}
+      </Slider>
     </Container>
   );
 };

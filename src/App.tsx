@@ -13,12 +13,12 @@ import {
 import { useGetImages } from './useGetImages';
 
 const App = () => {
-  // const { liveStream, fullPortraits } = useGetImages();
+  const { liveStream, fullPortraits } = useGetImages();
   return (
     <Container>
       <NavBar />
 
-      {/* {liveStream && (
+      {liveStream && (
         <StreamContainer>
           <StreamTitle>
             Live <span>◉</span>
@@ -59,7 +59,7 @@ const App = () => {
               </PortraitImages>
             </PortraitContainer>
           );
-        })} */}
+        })}
     </Container>
   );
 };
