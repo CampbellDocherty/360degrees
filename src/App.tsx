@@ -1,3 +1,4 @@
+import { NavBar } from './NavBar';
 import {
   Container,
   PortraitContainer,
@@ -8,16 +9,14 @@ import {
   StreamImage,
   StreamImages,
   StreamTitle,
-  Text,
 } from './styles';
 import { useGetImages } from './useGetImages';
 
 const App = () => {
   const { liveStream, fullPortraits } = useGetImages();
-
   return (
     <Container>
-      <Text>60° sonic self portraits</Text>
+      <NavBar />
 
       {liveStream && (
         <StreamContainer>
