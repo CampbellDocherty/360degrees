@@ -7,7 +7,7 @@ import { Components } from './Components';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <HashRouter basename={location.pathname}>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="components" element={<Components />} />
