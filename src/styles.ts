@@ -6,6 +6,9 @@ export const Container = styled.div`
   align-items: flex-start;
   min-height: 100vh;
   position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
 `;
 
 export const StreamContainer = styled.div`
@@ -36,14 +39,6 @@ export const StreamTitle = styled.p`
     vertical-align: middle;
     font-size: 12px;
   }
-`;
-
-export const Text = styled.p`
-  font-family: 'Inconsolata';
-  color: white;
-  padding: 0;
-  font-size: 20px;
-  margin: 24px 16px;
 `;
 
 const fadeIn = keyframes`

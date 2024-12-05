@@ -1,3 +1,4 @@
+import { NavBar } from './NavBar';
 import {
   Container,
   PortraitContainer,
@@ -8,18 +9,16 @@ import {
   StreamImage,
   StreamImages,
   StreamTitle,
-  Text,
 } from './styles';
 import { useGetImages } from './useGetImages';
 
 const App = () => {
-  const { liveStream, fullPortraits } = useGetImages();
-
+  // const { liveStream, fullPortraits } = useGetImages();
   return (
     <Container>
-      <Text>60° sonic self portraits</Text>
+      <NavBar />
 
-      {liveStream && (
+      {/* {liveStream && (
         <StreamContainer>
           <StreamTitle>
             Live <span>◉</span>
@@ -60,7 +59,7 @@ const App = () => {
               </PortraitImages>
             </PortraitContainer>
           );
-        })}
+        })} */}
     </Container>
   );
 };
