@@ -1,5 +1,5 @@
 import { isMobile } from 'react-device-detect';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { styled } from 'styled-components';
 
 export const StyledLink = styled.p<{ $selected: boolean }>`
@@ -28,18 +28,19 @@ const Nav = styled.nav`
 
 export const NavBar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Nav>
       <StyledLink
         onClick={() => navigate('/')}
-        $selected={!location.pathname.includes('/components')}
+        $selected={location.pathname == '/'}
       >
         60° Sonic Self Portraits
       </StyledLink>
       {!isMobile && (
         <StyledLink
           onClick={() => navigate('/components')}
-          $selected={location.pathname.includes('/components')}
+          $selected={location.pathname == '/components'}
         >
           Components
         </StyledLink>
