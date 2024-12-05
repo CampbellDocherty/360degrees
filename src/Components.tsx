@@ -80,7 +80,7 @@ const components = [
       countries.drc,
     ],
     text: `
-    The Arduino’s are distributed from Italy but are assembled using materials from all over the world. Copper, most likely from Chile or Peru. Gold, processed in China but maybe <a href="https://www.npr.org/2024/12/04/nx-s1-5208953/dr-congo-mining-capital-us-china-lobito-corridor-minerals-copper-africa-angola" target="_blank">sourced originally from mines</a> in the DRC. Silicon and plastics, like with most of the components used for this project, can be <a href="https://www.waferworld.com/post/the-silicon-supply-chain#:~:text=Silicon%20is%20produced%20throughout%20the,Brazil" target="_blank">traced most probably back</a> to the US and China and by way of its reliance on petroleum quite likely the Middletrong>`,
+    The Arduino’s are distributed from Italy but are assembled using materials from all over the world. Copper, most likely from Chile or Peru. Gold, processed in China but maybe <a href="https://www.npr.org/2024/12/04/nx-s1-5208953/dr-congo-mining-capital-us-china-lobito-corridor-minerals-copper-africa-angola" target="_blank">sourced originally from mines</a> in the DRC. Silicon and plastics, like with most of the components used for this project, can be <a href="https://www.waferworld.com/post/the-silicon-supply-chain#:~:text=Silicon%20is%20produced%20throughout%20the,Brazil" target="_blank">traced most probably back</a> to the US and China and by way of their reliance on petroleum quite likely the Middle East.`,
   },
   {
     name: 'Rasperry Pi',
@@ -97,7 +97,7 @@ const components = [
   {
     name: 'Acrycast Acrylic',
     countries: [countries.uk, countries.malaysia],
-    text: 'I used Acrycast Acrylic to create the case for the remote control and the tripod mount that holds the camera. Although I purchased the acrylic in the UK at the arts store from what I could find, there is a <a href="https://ubacrylic.com/production-process/" target="_blank">big manufacturer</a> of this type of acrylic in Malaysia. This factory provides suppliers globally and so could have been where my acrylic was originally from but again it’s hard to know for sure.',
+    text: 'I used Acrycast Acrylic to create the case for the remote control and the tripod mount that holds the camera. Although I purchased the acrylic at an arts store in the UK there is a <a href="https://ubacrylic.com/production-process/" target="_blank">big manufacturer</a> of this type of acrylic in Malaysia. This factory provides suppliers globally and so could have been where my acrylic was originally from. Again, it’s hard to know for sure. I initially had felt most guilty about my use of acrylic in this project as it seemed like the least sustainable material I was using but knowing that I can put these shards back into the fabrication room at Peckham Road makes me feel a little better. I have used little shards from that room often so it\'s nice knowing that my acrylic can go back into the creative ecosystem!',
   },
 ];
 
