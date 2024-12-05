@@ -32,14 +32,14 @@ export const NavBar = () => {
     <Nav>
       <StyledLink
         onClick={() => navigate('/')}
-        $selected={location.pathname == '/'}
+        $selected={!location.pathname.includes('/components')}
       >
         60° Sonic Self Portraits
       </StyledLink>
       {!isMobile && (
         <StyledLink
           onClick={() => navigate('/components')}
-          $selected={location.pathname == '/components'}
+          $selected={location.pathname.includes('/components')}
         >
           Components
         </StyledLink>

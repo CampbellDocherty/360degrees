@@ -1,8 +1,7 @@
 import { styled } from 'styled-components';
+import { countries } from './assets/countries';
 import { NavBar } from './NavBar';
 import { Container } from './styles';
-import { countries } from './assets/countries';
-import downArrow from './assets/down-arrow.svg';
 
 const Slider = styled.div`
   flex: 1;
@@ -69,26 +68,13 @@ const Text = styled.p`
   }
 `;
 
-const Button = styled.button`
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  background: transparent;
-  outline: none;
-  border: none;
-  width: 200px;
-  align-self: center;
-  cursor: pointer;
-`;
-
 const components = [
   {
     name: 'Arduino Leonardo',
     countries: [
       countries.italy,
-      countries.chile,
       countries.peru,
+      countries.chile,
       countries.china,
       countries.usa,
       countries.drc,
@@ -100,8 +86,8 @@ const components = [
     name: 'Rasperry Pi',
     countries: [
       countries.uk,
-      countries.chile,
       countries.peru,
+      countries.chile,
       countries.china,
       countries.usa,
       countries.drc,
@@ -140,9 +126,6 @@ export const Components = () => {
             project may have come from the DRC where global demand for their
             natural resources is fueling a deadly conflict.
           </Text>
-          <Button>
-            <img style={{ width: '20%' }} src={downArrow} alt="Down arrow" />
-          </Button>
         </SliderPiece>
         {components.map((component) => {
           return (
