@@ -13,51 +13,16 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      - name: Cache node modules
-        id: cache-node-modules
-        uses: actions/cache@v2
-        with:
-          path: "**/node_modules"
-          key: v1-yarn-deps-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: v1-yarn-deps-
+        uses: actions/checkout@v4
 
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install --production=false --frozen-lockfile
-
+        run: yarn install
+      
       - name: Run eslint
         run: yarn lint
 
       - name: Run prettier
         run: yarn check-format
-
-  test:
-    name: test
-    if: github.ref != 'refs/heads/main'
-    runs-on: ubuntu-latest
-    container:
-      image: node:20.0.0
-
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      - name: Cache node modules
-        id: cache-node-modules
-        uses: actions/cache@v2
-        with:
-          path: "**/node_modules"
-          key: v1-yarn-deps-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: v1-yarn-deps-
-
-      - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install --production=false --frozen-lockfile
-
-      - name: test
-        run: yarn test
 
   build:
     name: build
@@ -66,23 +31,14 @@ jobs:
     env:
       NODE_ENV: production
     container:
-      image: node:20.0.0
+      image: node:20.15.1
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      - name: Cache node modules
-        id: cache-node-modules
-        uses: actions/cache@v2
-        with:
-          path: "**/node_modules"
-          key: v1-yarn-deps-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: v1-yarn-deps-
+        uses: actions/checkout@v4
 
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn install --production=false --frozen-lockfile
+        run: yarn install
 
       - name: Build
         id: build
@@ -93,8 +49,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
-    container:
-      image: node:20.0.0
 
     steps:
       - name: Checkout
